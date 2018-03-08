@@ -1,0 +1,24 @@
+
+{
+    "jhipsterSampleApplicationApp": {
+        "producto" : {
+            "home": {
+                "title": "Productos",
+                "createLabel": "Crear novo Producto",
+                "createOrEditLabel": "Crear ou editar Producto"
+            },
+            "created": "Un novo Producto foi creado co identificador {{ param }}",
+            "updated": "Un Producto foi actualizado co identificador {{ param }}",
+            "deleted": "Un Producto foi eliminado co identificador {{ param }}",
+            "delete": {
+                "question": "Seguro que desexa eliminar Producto {{ id }}?"
+            },
+            "detail": {
+                "title": "Producto"
+            },
+            "codigoProducto": "Codigo Producto",
+            "nombreProducto": "Nombre Producto",
+            "codigoProducto": "Codigo Producto"
+        }
+    }
+}

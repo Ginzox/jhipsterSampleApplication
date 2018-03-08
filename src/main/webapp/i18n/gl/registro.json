@@ -1,0 +1,26 @@
+
+{
+    "jhipsterSampleApplicationApp": {
+        "registro" : {
+            "home": {
+                "title": "Registros",
+                "createLabel": "Crear novo Registro",
+                "createOrEditLabel": "Crear ou editar Registro"
+            },
+            "created": "Un novo Registro foi creado co identificador {{ param }}",
+            "updated": "Un Registro foi actualizado co identificador {{ param }}",
+            "deleted": "Un Registro foi eliminado co identificador {{ param }}",
+            "delete": {
+                "question": "Seguro que desexa eliminar Registro {{ id }}?"
+            },
+            "detail": {
+                "title": "Registro"
+            },
+            "producto": "Producto",
+            "fechaAlta": "Fecha Alta",
+            "usuario": "Usuario",
+            "producto": "Producto",
+            "usuario": "Usuario"
+        }
+    }
+}

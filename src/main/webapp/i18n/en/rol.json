@@ -1,0 +1,10 @@
+{
+    "jhipsterSampleApplicationApp": {
+        "Rol" : {
+            "null": "",
+            "ADMINISTRADOR": "ADMINISTRADOR",
+            "REGISTRO": "REGISTRO",
+            "CONSULTA": "CONSULTA"
+        }
+    }
+}

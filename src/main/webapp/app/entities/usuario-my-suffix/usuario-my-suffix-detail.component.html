@@ -1,0 +1,46 @@
+
+<div *ngIf="usuario">
+    <h2><span jhiTranslate="jhipsterSampleApplicationApp.usuario.detail.title">Usuario</span> {{usuario.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.usuario.codigoUsuario">Codigo Usuario</span></dt>
+        <dd>
+            <span>{{usuario.codigoUsuario}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.usuario.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{usuario.nombre}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.usuario.apellidos">Apellidos</span></dt>
+        <dd>
+            <span>{{usuario.apellidos}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.usuario.rol">Rol</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterSampleApplicationApp.Rol.' + usuario.rol}}">{{usuario.rol}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.usuario.departamento">Departamento</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterSampleApplicationApp.Departamento.' + usuario.departamento}}">{{usuario.departamento}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.usuario.idioma">Idioma</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterSampleApplicationApp.Idioma.' + usuario.idioma}}">{{usuario.idioma}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'usuario-my-suffix/'+ usuario.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

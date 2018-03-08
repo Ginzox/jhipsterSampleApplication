@@ -1,0 +1,64 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUsuarioLabel" jhiTranslate="jhipsterSampleApplicationApp.usuario.home.createOrEditLabel">Create or edit a Usuario</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!usuario.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="usuario.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.usuario.codigoUsuario" for="field_codigoUsuario">Codigo Usuario</label>
+            <input type="text" class="form-control" name="codigoUsuario" id="field_codigoUsuario"
+                [(ngModel)]="usuario.codigoUsuario" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.usuario.nombre" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                [(ngModel)]="usuario.nombre" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.usuario.apellidos" for="field_apellidos">Apellidos</label>
+            <input type="text" class="form-control" name="apellidos" id="field_apellidos"
+                [(ngModel)]="usuario.apellidos" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.usuario.rol" for="field_rol">Rol</label>
+            <select class="form-control" name="rol" [(ngModel)]="usuario.rol" id="field_rol" >
+                <option value="ADMINISTRADOR">{{'jhipsterSampleApplicationApp.Rol.ADMINISTRADOR' | translate}}</option>
+                <option value="REGISTRO">{{'jhipsterSampleApplicationApp.Rol.REGISTRO' | translate}}</option>
+                <option value="CONSULTA">{{'jhipsterSampleApplicationApp.Rol.CONSULTA' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.usuario.departamento" for="field_departamento">Departamento</label>
+            <select class="form-control" name="departamento" [(ngModel)]="usuario.departamento" id="field_departamento" >
+                <option value="LOGISTICA">{{'jhipsterSampleApplicationApp.Departamento.LOGISTICA' | translate}}</option>
+                <option value="PRODUCCION">{{'jhipsterSampleApplicationApp.Departamento.PRODUCCION' | translate}}</option>
+                <option value="QA">{{'jhipsterSampleApplicationApp.Departamento.QA' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.usuario.idioma" for="field_idioma">Idioma</label>
+            <select class="form-control" name="idioma" [(ngModel)]="usuario.idioma" id="field_idioma" >
+                <option value="FRENCH">{{'jhipsterSampleApplicationApp.Idioma.FRENCH' | translate}}</option>
+                <option value="ENGLISH">{{'jhipsterSampleApplicationApp.Idioma.ENGLISH' | translate}}</option>
+                <option value="SPANISH">{{'jhipsterSampleApplicationApp.Idioma.SPANISH' | translate}}</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

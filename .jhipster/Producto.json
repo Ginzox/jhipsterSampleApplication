@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "codigoProducto",
+            "otherEntityName": "registro",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "producto"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codigoProducto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombreProducto",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180308211132",
+    "entityTableName": "producto",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

@@ -1,0 +1,28 @@
+
+{
+    "jhipsterSampleApplicationApp": {
+        "usuario" : {
+            "home": {
+                "title": "Usuarios",
+                "createLabel": "Crear nuevo Usuario",
+                "createOrEditLabel": "Crear o editar Usuario"
+            },
+            "created": "Un nuevo Usuario ha sido creado con el identificador {{ param }}",
+            "updated": "Un Usuario ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Usuario ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Usuario {{ id }}?"
+            },
+            "detail": {
+                "title": "Usuario"
+            },
+            "codigoUsuario": "Codigo Usuario",
+            "nombre": "Nombre",
+            "apellidos": "Apellidos",
+            "rol": "Rol",
+            "departamento": "Departamento",
+            "idioma": "Idioma",
+            "codigoUsuario": "Codigo Usuario"
+        }
+    }
+}

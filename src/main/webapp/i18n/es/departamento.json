@@ -1,0 +1,10 @@
+{
+    "jhipsterSampleApplicationApp": {
+        "Departamento" : {
+            "null": "",
+            "LOGISTICA": "LOGISTICA",
+            "PRODUCCION": "PRODUCCION",
+            "QA": "QA"
+        }
+    }
+}

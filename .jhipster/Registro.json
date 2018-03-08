@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "producto",
+            "otherEntityName": "producto",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "codigoProducto"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "usuario",
+            "otherEntityName": "usuario",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "producto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaAlta",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "usuario",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180308211131",
+    "entityTableName": "registro",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}
