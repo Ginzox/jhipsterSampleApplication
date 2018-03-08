@@ -18,8 +18,8 @@ entity Producto {
     nombreProducto String
 }
 
-relationship OneToOne {
-	Registro{usuario(codigoUsuario)} to Usuario{codigoUsuario}
+relationship OneToMany {
+	Registro{usuario} to Usuario{codigoUsuario}
 }
 
 relationship OneToOne {
