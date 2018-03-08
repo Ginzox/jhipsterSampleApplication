@@ -20,14 +20,6 @@ entity Producto {
     registros Registro
 }
 
-relationship OneToMany {
-	Registro{usuario} to Usuario{registros}
-}
-
-relationship OneToMany {
-	Registro{producto} to Producto{registros}
-}
-
 enum Rol {
 	ADMINISTRADOR, REGISTRO, CONSULTA
 }
