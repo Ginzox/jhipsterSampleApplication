@@ -1,0 +1,82 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterSampleApplicationApp.registro.home.title">Registros</span>
+        <button class="btn btn-primary float-right jh-create-entity create-registro-my-suffix" [routerLink]="['/', { outlets: { popup: ['registro-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.registro.home.createLabel">
+            Create new Registro
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="registros">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="producto"><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fechaAlta"><span jhiTranslate="jhipsterSampleApplicationApp.registro.fechaAlta">Fecha Alta</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="usuario"><span jhiTranslate="jhipsterSampleApplicationApp.registro.usuario">Usuario</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="productoId"><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="usuarioId"><span jhiTranslate="jhipsterSampleApplicationApp.registro.usuario">Usuario</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let registro of registros ;trackBy: trackId">
+                <td><a [routerLink]="['../registro-my-suffix', registro.id ]">{{registro.id}}</a></td>
+                <td>{{registro.producto}}</td>
+                <td>{{registro.fechaAlta | date:'medium'}}</td>
+                <td>{{registro.usuario}}</td>
+                <td>
+                    <div *ngIf="registro.productoId">
+                        <a [routerLink]="['../producto-my-suffix', registro.productoId  ]" >{{registro.productoId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="registro.usuarioId">
+                        <a [routerLink]="['../usuario-my-suffix', registro.usuarioId  ]" >{{registro.usuarioId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../registro-my-suffix', registro.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'registro-my-suffix/'+ registro.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'registro-my-suffix/'+ registro.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="registros && registros.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

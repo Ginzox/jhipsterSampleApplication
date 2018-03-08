@@ -1,0 +1,46 @@
+
+<div *ngIf="registro">
+    <h2><span jhiTranslate="jhipsterSampleApplicationApp.registro.detail.title">Registro</span> {{registro.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span></dt>
+        <dd>
+            <span>{{registro.producto}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.fechaAlta">Fecha Alta</span></dt>
+        <dd>
+            <span>{{registro.fechaAlta | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.usuario">Usuario</span></dt>
+        <dd>
+            <span>{{registro.usuario}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span></dt>
+        <dd>
+            <div *ngIf="registro.productoId">
+                <a [routerLink]="['/producto-my-suffix', registro.productoId]">{{registro.productoId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.usuario">Usuario</span></dt>
+        <dd>
+            <div *ngIf="registro.usuarioId">
+                <a [routerLink]="['/usuario-my-suffix', registro.usuarioId]">{{registro.usuarioId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'registro-my-suffix/'+ registro.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

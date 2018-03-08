@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "codigoUsuario",
+            "otherEntityName": "registro",
+            "otherEntityRelationshipName": "usuario"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codigoUsuario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellidos",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rol",
+            "fieldType": "Rol",
+            "fieldValues": "ADMINISTRADOR,REGISTRO,CONSULTA"
+        },
+        {
+            "fieldName": "departamento",
+            "fieldType": "Departamento",
+            "fieldValues": "LOGISTICA,PRODUCCION,QA"
+        },
+        {
+            "fieldName": "idioma",
+            "fieldType": "Idioma",
+            "fieldValues": "FRENCH,ENGLISH,SPANISH"
+        }
+    ],
+    "changelogDate": "20180308211130",
+    "entityTableName": "usuario",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

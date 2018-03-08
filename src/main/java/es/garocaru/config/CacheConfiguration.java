@@ -45,6 +45,10 @@ public class CacheConfiguration {
             cm.createCache(es.garocaru.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(es.garocaru.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(es.garocaru.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(es.garocaru.domain.Usuario.class.getName(), jcacheConfiguration);
+            cm.createCache(es.garocaru.domain.Usuario.class.getName() + ".codigoUsuarios", jcacheConfiguration);
+            cm.createCache(es.garocaru.domain.Registro.class.getName(), jcacheConfiguration);
+            cm.createCache(es.garocaru.domain.Producto.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

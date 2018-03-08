@@ -1,0 +1,50 @@
+entity Usuario {
+	codigoUsuario String,
+    nombre String,
+    apellidos String,
+    rol Rol,
+    departamento Departamento,
+    idioma Idioma
+}
+
+entity Registro {
+	producto String,
+    fechaAlta Instant
+    usuario String
+}
+
+entity Producto {
+	codigoProducto String,
+    nombreProducto String
+}
+
+relationship OneToMany {
+	Usuario{codigoUsuario} to Registro{usuario}
+}
+
+relationship OneToOne {
+	Registro{producto} to Producto{codigoProducto}
+}
+
+enum Rol {
+	ADMINISTRADOR, REGISTRO, CONSULTA
+}
+
+enum Departamento {
+	LOGISTICA, PRODUCCION, QA
+}
+
+enum Idioma {
+    FRENCH, ENGLISH, SPANISH
+}
+
+// Set pagination options
+paginate Usuario, Producto with infinite-scroll
+paginate Registro with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+angularSuffix * with mySuffix
