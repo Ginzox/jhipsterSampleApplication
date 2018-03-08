@@ -8,9 +8,9 @@ entity Usuario {
 }
 
 entity Registro {
-	producto String,
+	producto Producto,
     fechaAlta Instant
-    usuario String
+    usuario Usuario
 }
 
 entity Producto {
@@ -19,11 +19,11 @@ entity Producto {
 }
 
 relationship OneToOne {
-	Registro{usuario} to Usuario{codigoUsuario}
+	Registro{usuario(codigoUsuario)} to Usuario{codigoUsuario}
 }
 
 relationship OneToOne {
-	Registro{producto} to Producto{codigoProducto}
+	Registro{producto(codigoProducto)} to Producto{codigoProducto}
 }
 
 enum Rol {
