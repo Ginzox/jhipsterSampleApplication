@@ -5,6 +5,7 @@ entity Usuario {
     rol Rol,
     departamento Departamento,
     idioma Idioma
+    registros Registro
 }
 
 entity Registro {
@@ -16,14 +17,15 @@ entity Registro {
 entity Producto {
 	codigoProducto String,
     nombreProducto String
+    registros Registro
 }
 
 relationship OneToMany {
-	Registro{usuario} to Usuario{codigoUsuario}
+	Registro{usuario} to Usuario{registros}
 }
 
-relationship OneToOne {
-	Registro{producto(codigoProducto)} to Producto{codigoProducto}
+relationship OneToMany {
+	Registro{producto} to Producto{registros}
 }
 
 enum Rol {
