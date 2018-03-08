@@ -32,13 +32,11 @@
             <column name="usuario" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="producto_id" type="bigint">
+            <column name="usuario_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="producto_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
-            <column name="usuario_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="registro" columnName="fecha_alta" columnDataType="datetime"/>

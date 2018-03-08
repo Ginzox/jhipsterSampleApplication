@@ -20,9 +20,9 @@ public class RegistroDTO implements Serializable {
 
     private String usuario;
 
-    private Long productoId;
-
     private Long usuarioId;
+
+    private Long productoId;
 
     public Long getId() {
         return id;
@@ -56,20 +56,20 @@ public class RegistroDTO implements Serializable {
         this.usuario = usuario;
     }
 
-    public Long getProductoId() {
-        return productoId;
-    }
-
-    public void setProductoId(Long productoId) {
-        this.productoId = productoId;
-    }
-
     public Long getUsuarioId() {
         return usuarioId;
     }
 
     public void setUsuarioId(Long usuarioId) {
         this.usuarioId = usuarioId;
+    }
+
+    public Long getProductoId() {
+        return productoId;
+    }
+
+    public void setProductoId(Long productoId) {
+        this.productoId = productoId;
     }
 
     @Override

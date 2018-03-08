@@ -27,7 +27,7 @@ export class UsuarioMySuffix implements BaseEntity {
         public rol?: Rol,
         public departamento?: Departamento,
         public idioma?: Idioma,
-        public codigoUsuarios?: BaseEntity[],
+        public codigoUsuarioId?: number,
     ) {
     }
 }

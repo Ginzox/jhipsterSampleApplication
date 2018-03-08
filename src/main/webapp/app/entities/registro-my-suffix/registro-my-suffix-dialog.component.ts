@@ -9,8 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { RegistroMySuffix } from './registro-my-suffix.model';
 import { RegistroMySuffixPopupService } from './registro-my-suffix-popup.service';
 import { RegistroMySuffixService } from './registro-my-suffix.service';
-import { ProductoMySuffix, ProductoMySuffixService } from '../producto-my-suffix';
 import { UsuarioMySuffix, UsuarioMySuffixService } from '../usuario-my-suffix';
+import { ProductoMySuffix, ProductoMySuffixService } from '../producto-my-suffix';
 
 @Component({
     selector: 'jhi-registro-my-suffix-dialog',
@@ -21,22 +21,35 @@ export class RegistroMySuffixDialogComponent implements OnInit {
     registro: RegistroMySuffix;
     isSaving: boolean;
 
-    productos: ProductoMySuffix[];
-
     usuarios: UsuarioMySuffix[];
+
+    productos: ProductoMySuffix[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private registroService: RegistroMySuffixService,
-        private productoService: ProductoMySuffixService,
         private usuarioService: UsuarioMySuffixService,
+        private productoService: ProductoMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.usuarioService
+            .query({filter: 'codigousuario-is-null'})
+            .subscribe((res: HttpResponse<UsuarioMySuffix[]>) => {
+                if (!this.registro.usuarioId) {
+                    this.usuarios = res.body;
+                } else {
+                    this.usuarioService
+                        .find(this.registro.usuarioId)
+                        .subscribe((subRes: HttpResponse<UsuarioMySuffix>) => {
+                            this.usuarios = [subRes.body].concat(res.body);
+                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
+                }
+            }, (res: HttpErrorResponse) => this.onError(res.message));
         this.productoService
             .query({filter: 'codigoproducto-is-null'})
             .subscribe((res: HttpResponse<ProductoMySuffix[]>) => {
@@ -50,8 +63,6 @@ export class RegistroMySuffixDialogComponent implements OnInit {
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.usuarioService.query()
-            .subscribe((res: HttpResponse<UsuarioMySuffix[]>) => { this.usuarios = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -88,11 +99,11 @@ export class RegistroMySuffixDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackProductoById(index: number, item: ProductoMySuffix) {
+    trackUsuarioById(index: number, item: UsuarioMySuffix) {
         return item.id;
     }
 
-    trackUsuarioById(index: number, item: UsuarioMySuffix) {
+    trackProductoById(index: number, item: ProductoMySuffix) {
         return item.id;
     }
 }

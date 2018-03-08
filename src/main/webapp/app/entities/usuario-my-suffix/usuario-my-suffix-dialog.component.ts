@@ -4,11 +4,12 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { UsuarioMySuffix } from './usuario-my-suffix.model';
 import { UsuarioMySuffixPopupService } from './usuario-my-suffix-popup.service';
 import { UsuarioMySuffixService } from './usuario-my-suffix.service';
+import { RegistroMySuffix, RegistroMySuffixService } from '../registro-my-suffix';
 
 @Component({
     selector: 'jhi-usuario-my-suffix-dialog',
@@ -19,15 +20,21 @@ export class UsuarioMySuffixDialogComponent implements OnInit {
     usuario: UsuarioMySuffix;
     isSaving: boolean;
 
+    registros: RegistroMySuffix[];
+
     constructor(
         public activeModal: NgbActiveModal,
+        private jhiAlertService: JhiAlertService,
         private usuarioService: UsuarioMySuffixService,
+        private registroService: RegistroMySuffixService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.registroService.query()
+            .subscribe((res: HttpResponse<RegistroMySuffix[]>) => { this.registros = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -58,6 +65,14 @@ export class UsuarioMySuffixDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(error: any) {
+        this.jhiAlertService.error(error.message, null, null);
+    }
+
+    trackRegistroById(index: number, item: RegistroMySuffix) {
+        return item.id;
     }
 }
 

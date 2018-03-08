@@ -16,16 +16,16 @@
         <dd>
             <span>{{registro.usuario}}</span>
         </dd>
-        <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span></dt>
-        <dd>
-            <div *ngIf="registro.productoId">
-                <a [routerLink]="['/producto-my-suffix', registro.productoId]">{{registro.productoId}}</a>
-            </div>
-        </dd>
         <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.usuario">Usuario</span></dt>
         <dd>
             <div *ngIf="registro.usuarioId">
                 <a [routerLink]="['/usuario-my-suffix', registro.usuarioId]">{{registro.usuarioId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span></dt>
+        <dd>
+            <div *ngIf="registro.productoId">
+                <a [routerLink]="['/producto-my-suffix', registro.productoId]">{{registro.productoId}}</a>
             </div>
         </dd>
     </dl>

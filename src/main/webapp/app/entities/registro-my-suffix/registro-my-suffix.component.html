@@ -20,8 +20,8 @@
             <th jhiSortBy="producto"><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="fechaAlta"><span jhiTranslate="jhipsterSampleApplicationApp.registro.fechaAlta">Fecha Alta</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="usuario"><span jhiTranslate="jhipsterSampleApplicationApp.registro.usuario">Usuario</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="productoId"><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="usuarioId"><span jhiTranslate="jhipsterSampleApplicationApp.registro.usuario">Usuario</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="productoId"><span jhiTranslate="jhipsterSampleApplicationApp.registro.producto">Producto</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -32,13 +32,13 @@
                 <td>{{registro.fechaAlta | date:'medium'}}</td>
                 <td>{{registro.usuario}}</td>
                 <td>
-                    <div *ngIf="registro.productoId">
-                        <a [routerLink]="['../producto-my-suffix', registro.productoId  ]" >{{registro.productoId}}</a>
+                    <div *ngIf="registro.usuarioId">
+                        <a [routerLink]="['../usuario-my-suffix', registro.usuarioId  ]" >{{registro.usuarioId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="registro.usuarioId">
-                        <a [routerLink]="['../usuario-my-suffix', registro.usuarioId  ]" >{{registro.usuarioId}}</a>
+                    <div *ngIf="registro.productoId">
+                        <a [routerLink]="['../producto-my-suffix', registro.productoId  ]" >{{registro.productoId}}</a>
                     </div>
                 </td>
                 <td class="text-right">
