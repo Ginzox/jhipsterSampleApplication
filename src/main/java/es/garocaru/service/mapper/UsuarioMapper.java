@@ -12,7 +12,7 @@ import org.mapstruct.*;
 public interface UsuarioMapper extends EntityMapper<UsuarioDTO, Usuario> {
 
 
-    @Mapping(target = "codigoUsuarios", ignore = true)
+    @Mapping(target = "codigoUsuario", ignore = true)
     Usuario toEntity(UsuarioDTO usuarioDTO);
 
     default Usuario fromId(Long id) {

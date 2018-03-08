@@ -12,6 +12,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing Usuario.
@@ -57,6 +61,21 @@ public class UsuarioServiceImpl implements UsuarioService {
         log.debug("Request to get all Usuarios");
         return usuarioRepository.findAll(pageable)
             .map(usuarioMapper::toDto);
+    }
+
+
+    /**
+     *  get all the usuarios where CodigoUsuario is null.
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<UsuarioDTO> findAllWhereCodigoUsuarioIsNull() {
+        log.debug("Request to get all usuarios where CodigoUsuario is null");
+        return StreamSupport
+            .stream(usuarioRepository.findAll().spliterator(), false)
+            .filter(usuario -> usuario.getCodigoUsuario() == null)
+            .map(usuarioMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
     }
 
     /**

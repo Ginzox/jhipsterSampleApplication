@@ -9,6 +9,7 @@ import { JhipsterSampleApplicationTestModule } from '../../../test.module';
 import { UsuarioMySuffixDialogComponent } from '../../../../../../main/webapp/app/entities/usuario-my-suffix/usuario-my-suffix-dialog.component';
 import { UsuarioMySuffixService } from '../../../../../../main/webapp/app/entities/usuario-my-suffix/usuario-my-suffix.service';
 import { UsuarioMySuffix } from '../../../../../../main/webapp/app/entities/usuario-my-suffix/usuario-my-suffix.model';
+import { RegistroMySuffixService } from '../../../../../../main/webapp/app/entities/registro-my-suffix';
 
 describe('Component Tests', () => {
 
@@ -24,6 +25,7 @@ describe('Component Tests', () => {
                 imports: [JhipsterSampleApplicationTestModule],
                 declarations: [UsuarioMySuffixDialogComponent],
                 providers: [
+                    RegistroMySuffixService,
                     UsuarioMySuffixService
                 ]
             })

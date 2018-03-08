@@ -35,10 +35,11 @@ public class Registro implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Producto producto;
-
-    @ManyToOne
     private Usuario usuario;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Producto producto;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -88,19 +89,6 @@ public class Registro implements Serializable {
         this.usuario = usuario;
     }
 
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public Registro producto(Producto producto) {
-        this.producto = producto;
-        return this;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -112,6 +100,19 @@ public class Registro implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public Registro producto(Producto producto) {
+        this.producto = producto;
+        return this;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

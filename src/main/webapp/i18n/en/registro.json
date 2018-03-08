@@ -19,8 +19,8 @@
             "producto": "Producto",
             "fechaAlta": "Fecha Alta",
             "usuario": "Usuario",
-            "producto": "Producto",
-            "usuario": "Usuario"
+            "usuario": "Usuario",
+            "producto": "Producto"
         }
     }
 }

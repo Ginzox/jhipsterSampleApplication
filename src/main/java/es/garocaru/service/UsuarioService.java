@@ -3,6 +3,7 @@ package es.garocaru.service;
 import es.garocaru.service.dto.UsuarioDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import java.util.List;
 
 /**
  * Service Interface for managing Usuario.
@@ -24,6 +25,12 @@ public interface UsuarioService {
      * @return the list of entities
      */
     Page<UsuarioDTO> findAll(Pageable pageable);
+    /**
+     * Get all the UsuarioDTO where CodigoUsuario is null.
+     *
+     * @return the list of entities
+     */
+    List<UsuarioDTO> findAllWhereCodigoUsuarioIsNull();
 
     /**
      * Get the "id" usuario.

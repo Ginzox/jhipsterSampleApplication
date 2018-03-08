@@ -8,15 +8,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Registro and its DTO RegistroDTO.
  */
-@Mapper(componentModel = "spring", uses = {ProductoMapper.class, UsuarioMapper.class})
+@Mapper(componentModel = "spring", uses = {UsuarioMapper.class, ProductoMapper.class})
 public interface RegistroMapper extends EntityMapper<RegistroDTO, Registro> {
 
-    @Mapping(source = "producto.id", target = "productoId")
     @Mapping(source = "usuario.id", target = "usuarioId")
+    @Mapping(source = "producto.id", target = "productoId")
     RegistroDTO toDto(Registro registro);
 
-    @Mapping(source = "productoId", target = "producto")
     @Mapping(source = "usuarioId", target = "usuario")
+    @Mapping(source = "productoId", target = "producto")
     Registro toEntity(RegistroDTO registroDTO);
 
     default Registro fromId(Long id) {

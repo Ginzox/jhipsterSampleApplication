@@ -7,8 +7,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 import es.garocaru.domain.enumeration.Rol;
@@ -53,10 +51,9 @@ public class Usuario implements Serializable {
     @Column(name = "idioma")
     private Idioma idioma;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToOne(mappedBy = "usuario")
     @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Registro> codigoUsuarios = new HashSet<>();
+    private Registro codigoUsuario;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -145,29 +142,17 @@ public class Usuario implements Serializable {
         this.idioma = idioma;
     }
 
-    public Set<Registro> getCodigoUsuarios() {
-        return codigoUsuarios;
+    public Registro getCodigoUsuario() {
+        return codigoUsuario;
     }
 
-    public Usuario codigoUsuarios(Set<Registro> registros) {
-        this.codigoUsuarios = registros;
+    public Usuario codigoUsuario(Registro registro) {
+        this.codigoUsuario = registro;
         return this;
     }
 
-    public Usuario addCodigoUsuario(Registro registro) {
-        this.codigoUsuarios.add(registro);
-        registro.setUsuario(this);
-        return this;
-    }
-
-    public Usuario removeCodigoUsuario(Registro registro) {
-        this.codigoUsuarios.remove(registro);
-        registro.setUsuario(null);
-        return this;
-    }
-
-    public void setCodigoUsuarios(Set<Registro> registros) {
-        this.codigoUsuarios = registros;
+    public void setCodigoUsuario(Registro registro) {
+        this.codigoUsuario = registro;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
